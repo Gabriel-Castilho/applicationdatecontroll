@@ -2,16 +2,26 @@
 <%-include('./partials/navbar.ejs') %>
 
 <body>
-    <div class="container">
-       <hr>
-        <div class="jumbotron">
-            <h1 class="display-4">Olá mundo</h1>
-           <!--  <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais/Learn more</a> -->
-          </div>
-
+    <h1> Lista de clientes</h1>
+    <ul id="id_clientes">
         
-    </div>
+    </ul>
+
 </body>
+
+<script>
+    axios.get("https://api-erp-tg.herokuapp.com/cliente").
+    then(response=>criarListaDinamica(response.data)).
+    catch(error => console.log(error))
+    const criarListaDinamica=(cliente)=>{
+        const ulCliente = document.getElementById("id_clientes")
+        clientes.map(aluno=>{
+            const listaCliente = document.createElement('li')
+            listaCliente.innerHTML=`Nome:${cliente.nome}`
+            ulCliente.appendChild(listaCliente)
+        })
+    }
+</script>
 
 
 <%-include('./partials/footer.ejs') %>
