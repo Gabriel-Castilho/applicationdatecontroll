@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); //accepting json
 
 
-api.get("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.render("index")
 })
 
