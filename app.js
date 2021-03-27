@@ -13,14 +13,8 @@ app.use(bodyParser.json()); //accepting json
 
 
 app.get("/",(req,res)=>{
-    res.render("index")
+    res.json = await axios.get("https://api-erp-tg.herokuapp.com")
 })
-
-function getClients(){
-   await api.get("/").then((req,res)=>{
-        res.data
-   })
-}
 
 
 
