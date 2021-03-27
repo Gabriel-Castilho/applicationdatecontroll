@@ -2,28 +2,14 @@
 <%-include('./partials/navbar.ejs') %>
 
 <body>
-    <tbody id='tabela-cliente'>
-        <td class="cliente-nome">nome</td>
-        <td class="cliente-telefone">telefone</td>
-
-    </tbody>
+    <h1>Clientes</h1>
+    <ul id="clientes">
+        
+    </ul>
     
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<script>
-    async function getCliente(){
-        const response = await axios.get('https://api-erp-tg.herokuapp.com/cliente')
-       console.log("response",response)
-    }
-    class Cliente{
-        constructor({nome,telefone}){
-        this.nome=nome;
-        this.telefone=telefone
-    }
-    }
-    getCliente();
+<script src="../public/js/clienteController.js"></script>
 
-</script>
-
-<%-include('./partials/navbar.ejs') %>
+<%-include('./partials/footer.ejs') %>

@@ -1,25 +1,13 @@
+const express = require("express");
+const router = express.Router()
+const api = require("../services/api")
 
-<%-include('./partials/header.ejs') %>
-<%-include('./partials/navbar.ejs') %>
-
-<body>
-    <h1>Clientes</h1>
-    <ul id="clientes">
-
-    </ul>
-    
-    <h2>ie</h2>
-    
-
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<!-- <script type="text/javascript" src="../functions/clienteController.js"></script> -->
-
-<script>
-axios.get('https://api-erp-tg.herokuapp.com/cliente')
+//api.get("/cliente") .then(response =>criarLista(response.data)).catch(error => console.log(error))
+api.get('/cliente')
     .then(response =>criarLista(response.data))
     .catch(error => console.log(error))
 
+    
     const criarLista = (clientes)=>{
         const ulClientes = document.getElementById('clientes')
         clientes.map(cliente=>{
@@ -31,6 +19,4 @@ axios.get('https://api-erp-tg.herokuapp.com/cliente')
         })
     }
 
-</script>
-
-<%-include('./partials/footer.ejs') %>
+module.exports = api;
