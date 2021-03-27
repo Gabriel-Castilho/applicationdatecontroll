@@ -2,26 +2,31 @@
 <%-include('./partials/navbar.ejs') %>
 
 <body>
-    <h1> Lista de clientes</h1>
-    <ul id="id_clientes">
-        
+    <h1>Clientes</h1>
+    <ul id="clientes">
+
     </ul>
+    
+    
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script>
-    axios.get("https://api-erp-tg.herokuapp.com/cliente").
-    then(response=>criarListaDinamica(response.data)).
-    catch(error => console.log(error))
-    const criarListaDinamica=(cliente)=>{
-        const ulCliente = document.getElementById("id_clientes")
-        clientes.map(aluno=>{
+   axios.get('https://api-erp-tg.herokuapp.com/cliente')
+    .then(response =>criarLista(response.data))
+    .catch(error => console.log(error))
+
+    const criarLista = (clientes)=>{
+        const ulClientes = document.getElementById('clientes')
+        clientes.map(cliente=>{
             const listaCliente = document.createElement('li')
-            listaCliente.innerHTML=`Nome:${cliente.nome}`
-            ulCliente.appendChild(listaCliente)
+            listaCliente.innerHTML =
+            `Nome: ${cliente.nome_clientes}
+            Telefone:${cliente.telefone}`
+            ulClientes.appendChild(listaCliente)
         })
     }
-</script>
 
+</script>
 
 <%-include('./partials/footer.ejs') %>

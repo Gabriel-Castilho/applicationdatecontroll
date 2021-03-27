@@ -1,6 +1,9 @@
-const axios = require("axios")
+import axios from "axios"
 
-const api = axios({
+//const axios = require("axios")
+
+
+const api = axios.create({
     baseURL: "https://api-erp-tg.herokuapp.com"
 })
 
