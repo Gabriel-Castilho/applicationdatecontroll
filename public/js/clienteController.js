@@ -2,10 +2,10 @@ const api = axios.create({
     baseURL: "https://api-erp-tg.herokuapp.com"
 })
 
-api.get('/cliente')
-.then(response =>criarTabela(response.data))
-.catch(error => console.log(error))
+api.get('/cliente').then(response =>criarTabela(response.data)).catch(error => console.log(error))
 
+ api.post('/cliente')
+.then(response =>abrirModal(response.data)).catch(error => console.log(error))
 
 function criarTabela(clientes){
     var table = document.getElementById("tabelaCliente")
@@ -17,8 +17,11 @@ function criarTabela(clientes){
 
                 table.innerHTML += row
     }
-    
 }
+
+
+
+
 
 
 
