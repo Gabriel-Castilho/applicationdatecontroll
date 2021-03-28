@@ -1,22 +1,30 @@
-const express = require("express");
-const router = express.Router()
-const api = require("../services/api")
+const api = axios.create({
+    baseURL: "https://api-erp-tg.herokuapp.com"
+})
 
-//api.get("/cliente") .then(response =>criarLista(response.data)).catch(error => console.log(error))
 api.get('/cliente')
-    .then(response =>criarLista(response.data))
-    .catch(error => console.log(error))
+.then(response =>criarTabela(response.data))
+.catch(error => console.log(error))
 
-    
-    const criarLista = (clientes)=>{
-        const ulClientes = document.getElementById('clientes')
-        clientes.map(cliente=>{
-            const listaCliente = document.createElement('li')
-            listaCliente.innerHTML =
-            `Nome: ${cliente.nome_clientes}
-            Telefone:${cliente.telefone}`
-            ulClientes.appendChild(listaCliente)
-        })
+
+function criarTabela(clientes){
+    var table = document.getElementById("tabelaCliente")
+    for(var i=0;i< clientes.length ;i++){
+        var row = `<tr> 
+                        <td>${clientes[i].nome_clientes}</td>
+                        <td>${clientes[i].telefone}</td>
+                    </tr>`
+
+                table.innerHTML += row
     }
+    
+}
 
-module.exports = api;
+
+
+
+
+
+
+
+

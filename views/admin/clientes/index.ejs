@@ -1,32 +1,24 @@
-<%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar.ejs') %>
+<%-include('.. /../partials/header.ejs') %>
+    <%-include('.. /../partials/navbar.ejs') %>
 
-<body>
-    <h1>Clientes</h1>
-    <ul id="clientes">
-        
-    </ul>
+        <body>
+            <br>
+            <div class="container">
 
-    <h2></h2>
-    
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaCliente"></tbody>
+                </table>
+            </div>
 
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<script>
- axios.get('https://api-erp-tg.herokuapp.com/cliente')
-    .then(response =>criarLista(response.data))
-    .catch(error => console.log(error))
+        </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+        <script type="text/javascript" src="./js/clienteController.js"></script>
 
-    const criarLista = (clientes)=>{
-        const ulClientes = document.getElementById('clientes')
-        clientes.map(cliente=>{
-            const listaCliente = document.createElement('li')
-            listaCliente.innerHTML =
-            `Nome: ${cliente.nome_clientes}
-            Telefone:${cliente.telefone}`
-            ulClientes.appendChild(listaCliente)
-        })
-    }
-</script>
 
-<%-include('./partials/footer.ejs') %>
+        <%-include('.. /../partials/footer.ejs') %>

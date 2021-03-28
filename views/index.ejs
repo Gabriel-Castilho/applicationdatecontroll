@@ -3,34 +3,13 @@
 <%-include('./partials/navbar.ejs') %>
 
 <body>
-    <h1>Clientes</h1>
-    <ul id="clientes">
+    <div class="container">
+       <hr>
+        <div class="jumbotron">
+            <h1 class="display-4">Olá, seja bem vindo a home page </h1>
+          </div>
 
-    </ul>
-    
-    <h2>ie</h2>
-    
-
+    </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<!-- <script type="text/javascript" src="../functions/clienteController.js"></script> -->
 
-<script>
-axios.get('https://api-erp-tg.herokuapp.com/cliente')
-    .then(response =>criarLista(response.data))
-    .catch(error => console.log(error))
-
-    const criarLista = (clientes)=>{
-        const ulClientes = document.getElementById('clientes')
-        clientes.map(cliente=>{
-            const listaCliente = document.createElement('li')
-            listaCliente.innerHTML =
-            `Nome: ${cliente.nome_clientes}
-            Telefone:${cliente.telefone}`
-            ulClientes.appendChild(listaCliente)
-        })
-    }
-
-</script>
-
-<%-include('./partials/footer.ejs') %>
+<%-include('./partials/footer.ejs') %> 
