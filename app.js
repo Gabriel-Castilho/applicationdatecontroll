@@ -20,7 +20,7 @@ app.get("/",(req,res)=>{
 
 
 app.get("/cliente",(req,res)=>{
-    res.render("index")
+    res.render("admin/clientes/index")
 })
 
 
