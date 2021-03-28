@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 router.get("/cliente",(req, res) => {
-        res.render("admin/clientes/index")
+        res.render("teste")
         
     });
 
